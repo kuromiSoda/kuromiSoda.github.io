@@ -252,6 +252,36 @@ nav {
   25%, 75% { opacity: 0; }
 }
 
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-preview {
+  visibility: hidden;
+  opacity: 0;
+  width: 220px;
+  background-color: #fff;
+  color: #333;
+  text-align: left;
+  border-radius: 6px;
+  padding: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  z-index: 999;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.3s ease;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.tooltip:hover .tooltip-preview {
+  visibility: visible;
+  opacity: 1;
+}
+
 /* INTERESTS */
 .interests {
   margin-top: 25px;
