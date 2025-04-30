@@ -47,3 +47,7 @@ function renderAllKuromis() {
 }
 
 window.onresize = renderAllKuromis;
+
+document.getElementById("hamburgerMenu").addEventListener("click", function () {
+  document.getElementById("mobileMenu").classList.toggle("active");
+});
