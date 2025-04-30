@@ -69,6 +69,7 @@ body, .cards {
 /* NAVIGATION */
 nav {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding: 16px 40px;
   background-color: #eae6f8;
@@ -78,29 +79,91 @@ nav {
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
-nav a {
-  font-family: 'Poppins', sans-serif;
-  margin: 0 12px;
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  transition: color 0.2s ease;
+.nav-left {
+  display: flex;
+  align-items: center;
 }
 
-nav a:hover {
-  color: #a288d9;
-}
-
-nav .nav-left a {
+.nav-left a {
   font-family: 'Merriweather';
   font-size: 1rem;
   font-weight: bold;
   color: #6A4C8C;
   text-transform: uppercase;
   letter-spacing: 2px;
+  text-decoration: none;
+}
+
+.nav-right {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-right a {
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 10px 20px;
+  transition: color 0.2s ease;
+}
+
+.nav-right a:hover {
+  color: #a288d9;
+}
+
+/* Style for Hamburger Menu */
+.hamburger-menu {
+  display: none;
+  cursor: pointer;
+  font-size: 30px;
+  color: #6A4C8C;
+  align-items: center;
+}
+
+/* Mobile Menu - Hidden by Default */
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  background-color: #eae6f8;
+  padding: 10px 0;
+  text-align: center;
+  z-index: 999;
+}
+
+.mobile-menu a {
+  display: block;
+  padding: 15px;
+  color: #6A4C8C;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.mobile-menu a:hover {
+  background-color: #d3c2f4;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .nav-right {
+    display: none;
+  }
+
+  .hamburger-menu {
+    display: flex;
+  }
+
+  .mobile-menu.active {
+    display: block;
+  }
 }
 
 /* ABOUT SECTION */
+/* (unchanged from your code) */
 .about-container {
   text-align: center;
   padding: 10px 10px 60px;
@@ -137,16 +200,15 @@ nav .nav-left a {
 .profile-pic {
   width: 330px;
   height: 330px;
-  object-fit: cover; /* Ensures the image fills the container */
-  object-position: center; /* Keeps the focus centered */
+  object-fit: cover;
+  object-position: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   border-radius: 12px;
-  transition: transform 0.3s ease; /* Smooth transition for zoom */
+  transition: transform 0.3s ease;
 }
 
 .profile-pic:hover {
-  transform: scale(1.1); /* Zooms in the image inside the container */
-  /* Optional: Add slight movement to keep the image focused */
+  transform: scale(1.1);
   object-position: center center;
 }
 
@@ -514,7 +576,7 @@ nav .nav-left a {
 }
 
 @media (max-width: 1024px) {
-  .card {
+  .card { 
     flex: 0 0 220px;
   }
 }
@@ -528,5 +590,23 @@ nav .nav-left a {
 @media (max-width: 480px) {
   .card {
     flex: 0 0 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    padding-inline: 10px; /* Reduce padding to prevent overflow */
+    margin-inline: 50px;  /* Leaves space for Kuromi borders */
+    overflow-x: hidden;   /* Prevents horizontal scroll */
+  }
+
+  .about-flex-container {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .about-right, .about-left {
+    padding: 0;
+    margin: 0;
   }
 }
