@@ -67,8 +67,9 @@ body, .cards {
 }
 
 /* NAVIGATION */
-/* NAVIGATION */
 nav {
+  display: flex;
+  justify-content: space-between;
   padding: 16px 40px;
   background-color: #eae6f8;
   position: sticky;
@@ -77,41 +78,26 @@ nav {
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
-.nav-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.nav-title {
-  font-family: 'Merriweather', serif;
-  font-size: 1rem;
-  font-weight: bold;
-  color: #6A4C8C;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  text-decoration: none;
-  margin-right: auto;
-}
-
-.nav-right {
-  display: flex;
-  gap: 20px;
-}
-
-.nav-right a {
-  display: block;
-  padding: 10px 20px;
+nav a {
   font-family: 'Poppins', sans-serif;
+  margin: 0 12px;
   text-decoration: none;
   color: #333;
   font-weight: 500;
   transition: color 0.2s ease;
 }
 
-.nav-right a:hover {
+nav a:hover {
   color: #a288d9;
+}
+
+nav .nav-left a {
+  font-family: 'Merriweather';
+  font-size: 1rem;
+  font-weight: bold;
+  color: #6A4C8C;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 /* ABOUT SECTION */
@@ -151,15 +137,16 @@ nav {
 .profile-pic {
   width: 330px;
   height: 330px;
-  object-fit: cover;
-  object-position: center;
+  object-fit: cover; /* Ensures the image fills the container */
+  object-position: center; /* Keeps the focus centered */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   border-radius: 12px;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease; /* Smooth transition for zoom */
 }
 
 .profile-pic:hover {
-  transform: scale(1.1);
+  transform: scale(1.1); /* Zooms in the image inside the container */
+  /* Optional: Add slight movement to keep the image focused */
   object-position: center center;
 }
 
@@ -244,11 +231,11 @@ nav {
   padding: 25px 0;
   gap: 20px;
   -webkit-overflow-scrolling: touch;
-  margin: 0 40px;
+  margin: 0 40px; /* Added margin to create space from the sides (left and right) */
 }
 
 .card {
-  flex: 0 0 280px !important;
+  flex: 0 0 280px !important; /* Adjusted width to make it narrower */
   background: white;
   border-radius: 12px;
   padding: 20px;
@@ -310,13 +297,13 @@ nav {
 /* RESPONSIVE CARD WIDTHS */
 @media (max-width: 1024px) {
   .card {
-    flex: 0 0 220px;
+    flex: 0 0 280px;
   }
 }
 
 @media (max-width: 768px) {
   .card {
-    flex: 0 0 200px;
+    flex: 0 0 240px;
   }
 }
 
@@ -327,7 +314,7 @@ nav {
   }
 
   .card {
-    flex: 0 0 180px;
+    flex: 0 0 200px;
   }
 
   .profile-pic {
@@ -336,14 +323,27 @@ nav {
   }
 }
 
+
+@media (min-width: 768px) {
+  .card {
+    flex: 0 0 200px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    flex: 0 0 250px;
+  }
+}
+
 /* SKILLS SECTION */
 #skills {
   padding: 40px 20px;
-  background: #f6f5fa;
+  background: #f6f5fa; /* Match the About Me gradient */
   text-align: center;
-  margin-left: 60px;
-  margin-right: 60px;
-  z-index: 10;
+  margin-left: 60px;  /* Adds space to the left side */
+  margin-right: 60px; /* Adds space to the right side */
+  z-index: 10; /* Ensure the skills section is above the borders */
 }
 
 #skills h2 {
@@ -408,6 +408,7 @@ nav {
   color: white;
 }
 
+/* RESPONSIVE DESIGN */
 @media (max-width: 768px) {
   .skills-category {
     flex: 1 1 100%;
@@ -418,7 +419,7 @@ nav {
 /* NOTES SECTION */
 #notes {
   padding: 30px 20px;
-  background-color: #f2ecfa;
+  background-color: #f2ecfa;  /* Match the Projects section background color */
   text-align: center;
 }
 
@@ -453,7 +454,7 @@ nav {
   100% { content: ''; }
 }
 
-/* HAMBURGER MENU */
+/* Style for Hamburger Menu */
 .hamburger-menu {
   display: none;
   cursor: pointer;
@@ -461,6 +462,7 @@ nav {
   color: #6A4C8C;
 }
 
+/* Mobile Menu - Hidden by Default */
 .mobile-menu {
   display: none;
   position: absolute;
@@ -484,6 +486,18 @@ nav {
   background-color: #d3c2f4;
 }
 
+/* Regular Desktop Nav (Visible on larger screens) */
+.nav-right {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-right a {
+  display: block;
+  padding: 10px 20px;
+}
+
+/* Responsive Layout */
 @media (max-width: 768px) {
   .nav-right {
     display: none;
@@ -493,7 +507,26 @@ nav {
     display: block;
   }
 
+  /* Show mobile menu when it's active */
   .mobile-menu.active {
     display: block;
+  }
+}
+
+@media (max-width: 1024px) {
+  .card {
+    flex: 0 0 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex: 0 0 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    flex: 0 0 180px;
   }
 }
